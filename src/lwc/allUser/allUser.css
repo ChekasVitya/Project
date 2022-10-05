@@ -1,0 +1,10 @@
+.user-tile {
+    display: block;
+    border: 1px solid #014457;
+    border-radius: .25rem;
+    background-color: #c7e2f5;
+    overflow-wrap: break-word;
+}
+.user-silhouette {
+    height: 100px;
+}

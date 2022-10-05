@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="Display the Order based on User Name" icon-name="standard:user">
+        <div class="slds slds-p-around_medium">
+            <div class="slds-grid slds-wrap">
+                <p>User name:</p>
+                <div class="slds-col slds-size_4-of-20">
+                    <lightning-input type="search" placeholder="Search..."
+                                     onchange={handleChange} label="">
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_4-of-12 "
+                     style="margin-top: 19px; margin-left: 10px;">
+                    <lightning-button
+                            label="Search" size="small" variant="brand" onclick={handleUserSearch}
+                            icon-name="utility:search" icon-position="right">
+                    </lightning-button>
+                </div>
+            </div>
+            <br/>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered" bordercolor="#ccc"
+                   style="border-collapse:collapse;">
+                <thead>
+                <tr>
+                    <th>OrderNumber</th>
+                    <th>CustomerAuthorizedById</th>
+                    <th>TotalAmount</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <template for:each={records} for:item="conItem">
+                    <tr key={conItem.Id}>
+                        <td>{conItem.OrderNumber}</td>
+                        <td>{conItem.CustomerAuthorizedById}</td>
+                        <td>{conItem.TotalAmount}</td>
+                        <td>{conItem.Status}</td>
+                    </tr>
+                </template>
+                </tbody>
+            </table>
+            <br/><br/>
+        </div>
+    </lightning-card>
+</template>

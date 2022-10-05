@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="User" icon-name="standard:user">
+        <div class="slds-card__body slds-card__body_inner">
+            <template if:true={userData}>
+                <lightning-layout multiple-rows="true" pull-to-boundary="small">
+                    <template for:each={userData} for:item="user">
+                        <lightning-layout-item key={user.Id} size="3" class="slds-var-p-around_x-small">
+                            <lightning-card title={user.Name} class="user-tile" icon-name="standard:user">
+                                <div class="slds-p-left_none user-tile-body slds-text-align_left slds-p-around_medium">
+                                    <p class="slds-var-m-bottom_xx-small"><b>Id: </b>{user.Id}</p>
+                                    <p class="slds-var-m-bottom_xx-small"><b>Name: </b>{user.Name}</p>
+                                    <p class="slds-var-m-bottom_xx-small"><b>Username: </b>{user.Username}</p>
+                                    <p class="slds-var-m-bottom_xx-small"><b>Email: </b>{user.Email}</p>
+                                    <p if:true={user.Phone} class="slds-var-m-bottom_xx-small"><b>Phone: </b>{user.Phone}
+                                    </p>
+                                    <p if:true={user.City} class="slds-var-m-bottom_xx-small"><b>City: </b>{user.City}
+                                    </p>
+                                    <p class="slds-var-m-bottom_xx-small"><b>IsActive: </b>{user.IsActive}</p>
+                                </div>
+                            </lightning-card>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </template>
+            <template if:true={error}>
+                <div class="slds-text-color_error">
+                    An error occurred while loading the user list
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
